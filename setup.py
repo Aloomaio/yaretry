@@ -3,11 +3,14 @@ import setuptools
 
 install_reqs = []
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 setuptools.setup(
     name='yaretry',
-    version='0.1.0',
+    version='0.1.1',
     description='Small library for a neat looking retry wrapper',
+    long_description=long_description,
     author='Rami Amar',
     author_email='rami@alooma.com',
     url='https://github.com/Aloomaio/yaretry',
@@ -16,6 +19,7 @@ setuptools.setup(
     keywords=['alooma, retry'],
     classifiers=(
         "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 2",
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     )
