@@ -36,19 +36,19 @@ The `yaretry` library comes with a Params class, that can be passed to the wrapp
 
 To add a timeout, measured in seconds:
 
-```
+```python
 retrying_f = yaretry.wrap(f, yaretry.Params(timeout=60))
 ```
 
 To add a maximum number of retry attempts:
 
-```
+```python
 retrying_f = yaretry.wrap(f, yaretry.Params(max_attempts=10))
 ```
 
 To change the initial delay, and the exponent:
 
-```
+```python
 retrying_f = yaretry.wrap(f, yaretry.Params(intial_delay=0.5, exponent=1.2))
 
 # make the delay constant:
@@ -56,7 +56,7 @@ retrying_f = yaretry.wrap(f, yaretry.Params(intial_delay=10, exponent=1))
 ```
 
 To retry in case the function returns False (or a value that, when cast to bool will be False):
-```
+```python
 @yaretry.decorate(yaretry.Params(retry_on_false=True))
 def foo(bar):
     if bar == 1:
@@ -70,7 +70,7 @@ def foo(bar):
 ```
 
 To retry only in case of a specific exception or several exceptions:
-```
+```python
 @yaretry.decorate(yaretry.Params(allowed_exceptions=(
     MyCustomException,
     LookupError))
